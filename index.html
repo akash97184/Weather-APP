@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="wrapper">
+
+        <h1>Weather App</h1>
+
+        <div class="tab-container">
+            <p class="tab" data-userWeather>Your Weather</p>
+            <p class="tab" data-searchWeather>Search Weather</p>
+        </div>
+
+        <!-- * This weather container contains all the web layouts (grant location, user weather information
+        *, loading page, , search bar, search weather location.) but only one is shown at a time.and other are hidden. -->
+        <div class="weather-container">
+
+            <!-- grant location UI  container-->
+            <div class="sub-container grant-location-container">
+                <img src="./assets/location.png" width="80"  height="80" loading="lazy" alt="" >
+                <p>grant Location Access</p>
+                <p>Allow Access to get weather Information</p>
+                <button class="btn" data-grantAccess >Grant Access</button>
+            </div>
+
+            
+            <!-- Search form -->
+            <form  class="form-container" data-searchForm>
+                <input placeholder="Search for City..." data-searchInput>
+                <button class="btn" type="submit">
+                    <img src="./assets/search.png"  width="20"  height="20" loading="lazy" >
+                </button>
+            </form>
+
+
+            <!-- Loading Screen container -->
+            <div class="sub-container loading-container">
+                <img src="./assets/loading.gif" width="150"  height="150" loading="lazy" alt="">
+                <p>Loading</p>
+            </div>
+
+
+            <!-- Not Found Container  -->
+            <div class="sub-container api-error-container">
+                <img src="./assets/not-found.png" data-notFoundImg />
+                <p data-apiErrorText></p>
+                <button class="btn" data-apiErrorBtn>Retry</button>
+            </div>
+
+            <!-- Show Weather Info -->
+            <div class="sub-container user-info-container">
+
+                <!-- City name and flag -->
+                <div class="name">
+                    <p data-cityName></p>
+                    <!--*  We wont add src for flag image because that will dynamic which from city code and city name. -->
+                    <!-- * And flag image wont be same every time that differs with city code and city name. -->
+                    <img data-countryIcon>
+                </div>
+
+                <!-- Weather description -->
+                <!-- * The paragraph, weather icon imageand temperature are also dynamic which differs with city code and city name
+                * So , We wont give any value , we take their values dynamically. -->
+                <!-- Weather Description -->
+                <p data-weatherDesc></p>
+                <!-- weather Icon -->
+                <img data-weatherIcon >
+                <!-- Temperature -->
+                <p data-temp></p>
+
+                
+                <!-- 3 Card parameter -->
+                <div class="parameter-container">
+
+                    <!-- Card 1 -->
+                    <div class="parameter">
+                        <img src="./assets/wind.png" >
+                        <p>windspeed</p>
+                        <p data-windSpeed></p>
+                    </div>
+
+
+                    <!-- Card 2 -->
+                    <div class="parameter">
+                        <img src="./assets/humidity.png" >
+                        <p>humidity</p>
+                        <p data-humidity></p>
+                    </div>
+
+
+                    <!-- Card 3 -->
+                    <div class="parameter">
+                        <img src="./assets/cloud.png" >
+                        <p>Clouds</p>
+                        <p data-cloudiness></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
